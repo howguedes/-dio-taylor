@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Weme</title>
+    <style>
+        /* Fundo com degradê e brilho */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #8b0000, #000000);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background-attachment: fixed;
+        }
+
+        /* Container principal */
+        .quiz-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.06);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+            text-align: center;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Título */
+        .quiz-container h1 {
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #ff4d4d;
+            text-shadow: 0 0 15px rgba(255, 68, 68, 0.8);
+        }
+
+        /* Imagem única redonda */
+        .image {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+
+        .image img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #ff4d4d;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+            transition: transform 0.3s ease;
+        }
+
+        .image img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Questões */
+        .question {
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-bottom: 14px;
+            font-size: 1.2rem;
+            color: #ffcccc;
+        }
+
+        .options label {
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 10px 0;
+            padding: 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .options label:hover {
+            background: rgba(255, 68, 68, 0.4);
+            transform: translateX(5px);
+        }
+
+        /* Rodapé */
+        .footer {
+            margin-top: 45px;
+            font-style: italic;
+            color: #ffb3b3;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>WEME DA TAYLOR</h1>
+
+       
+        <!-- Perguntas -->
+        <div class="question">
+            <p>1. Qual foi o primeiro álbum da Taylor Swift?</p>
+            <div class="options">
+                <label><input type="radio" name="q1"> Taylor Swift</label>
+                <label><input type="radio" name="q1"> Fearless</label>
+                <label><input type="radio" name="q1"> Speak Now</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>2. Em que ano saiu o álbum “Red”?</p>
+            <div class="options">
+                <label><input type="radio" name="q2"> 2010</label>
+                <label><input type="radio" name="q2"> 2012</label>
+                <label><input type="radio" name="q2"> 2014</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>3. Qual dessas músicas NÃO é da Taylor Swift?</p>
+            <div class="options">
+                <label><input type="radio" name="q3"> Love Story</label>
+                <label><input type="radio" name="q3"> Style</label>
+                <label><input type="radio" name="q3"> Someone Like You</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>4. Qual o nome do álbum que marcou a era pop da Taylor?</p>
+            <div class="options">
+                <label><input type="radio" name="q4"> 1989</label>
+                <label><input type="radio" name="q4"> Reputation</label>
+                <label><input type="radio" name="q4"> Folklore</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>5. Em que cidade Taylor Swift nasceu?</p>
+            <div class="options">
+                <label><input type="radio" name="q5"> Reading</label>
+                <label><input type="radio" name="q5"> Nashville</label>
+                <label><input type="radio" name="q5"> Los Angeles</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>6. Qual música ganhou o Grammy de Música do Ano em 2016?</p>
+            <div class="options">
+                <label><input type="radio" name="q6"> Shake It Off</label>
+                <label><input type="radio" name="q6"> Blank Space</label>
+                <label><input type="radio" name="q6"> Bad Blood</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>7. Qual desses álbuns foi lançado durante a pandemia?</p>
+            <div class="options">
+                <label><input type="radio" name="q7"> Reputation</label>
+                <label><input type="radio" name="q7"> Folklore</label>
+                <label><input type="radio" name="q7"> 1989</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>8. Qual turnê ficou conhecida como a maior da carreira da Taylor até hoje?</p>
+            <div class="options">
+                <label><input type="radio" name="q8"> Speak Now World Tour</label>
+                <label><input type="radio" name="q8"> Red Tour</label>
+                <label><input type="radio" name="q8"> The Eras Tour</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>9. Qual dessas músicas pertence ao álbum “Folklore”?</p>
+            <div class="options">
+                <label><input type="radio" name="q9"> Cardigan</label>
+                <label><input type="radio" name="q9"> Lover</label>
+                <label><input type="radio" name="q9"> Wildest Dreams</label>
+            </div>
+        </div>
+
+        <div class="question">
+            <p>10. Em 2025, Taylor completou a regravação de quais álbuns?</p>
+            <div class="options">
+                <label><input type="radio" name="q10"> Todos os seus álbuns até o “Reputation”</label>
+                <label><input type="radio" name="q10"> Somente os 3 primeiros</label>
+                <label><input type="radio" name="q10"> Nenhum</label>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="footer">
+            by Wemwlly & Nicolly Guedes
+        </div>
+    </div>
+</body>
+
+</html>
