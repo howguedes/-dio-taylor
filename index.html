@@ -1,207 +1,266 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Weme</title>
-    <style>
-        /* Fundo com degradê e brilho */
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #8b0000, #000000);
-            color: #fff;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px;
-            background-attachment: fixed;
-        }
-
-        /* Container principal */
-        .quiz-container {
-            max-width: 900px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.06);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
-            text-align: center;
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Título */
-        .quiz-container h1 {
-            margin-bottom: 30px;
-            font-size: 2.5rem;
-            color: #ff4d4d;
-            text-shadow: 0 0 15px rgba(255, 68, 68, 0.8);
-        }
-
-        /* Imagem única redonda */
-        .image {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 35px;
-        }
-
-        .image img {
-            width: 300px;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 5px solid #ff4d4d;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
-            transition: transform 0.3s ease;
-        }
-
-        .image img:hover {
-            transform: scale(1.05);
-        }
-
-        /* Questões */
-        .question {
-            margin: 30px 0;
-            text-align: left;
-        }
-
-        .question p {
-            font-weight: bold;
-            margin-bottom: 14px;
-            font-size: 1.2rem;
-            color: #ffcccc;
-        }
-
-        .options label {
-            display: block;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 10px 0;
-            padding: 14px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background 0.3s ease, transform 0.2s ease;
-        }
-
-        .options label:hover {
-            background: rgba(255, 68, 68, 0.4);
-            transform: translateX(5px);
-        }
-
-        /* Rodapé */
-        .footer {
-            margin-top: 45px;
-            font-style: italic;
-            color: #ffb3b3;
-            font-size: 1rem;
-            letter-spacing: 1px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Weme & Guedes - Quiz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #8b0000, #000000);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+      text-align: center;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    h1 { 
+      color: #ff4d4d; 
+      text-shadow: 0 0 15px rgba(255,68,68,0.8); 
+      margin-bottom: 20px;
+    }
+    .question { text-align: left; margin: 20px 0; }
+    .question p { font-weight: bold; color: #ffcccc; }
+    .options label {
+      display: block;
+      background: rgba(255,255,255,0.1);
+      margin: 10px 0;
+      padding: 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .options label:hover {
+      background: rgba(255,68,68,0.4);
+      transform: translateX(5px);
+    }
+    .hidden { display: none; }
+    .score-box {
+      background: rgba(255,68,68,0.2);
+      padding: 20px;
+      border-radius: 15px;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #ffdddd;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+    .ranking-box {
+      background: rgba(255,68,68,0.1);
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 20px;
+      color: #fff;
+      text-align: left;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background-color: #ff4d4d;
+      color: #fff;
+      margin-top: 15px;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #ff6666;
+    }
+  </style>
 </head>
-
 <body>
-    <div class="quiz-container">
-        <h1>WEME DA TAYLOR</h1>
+<div class="container">
+  <!-- Tela inicial -->
+  <div id="start-screen">
+    <h1>Weme da Taylor</h1>
+    <p>Digite seu nome para começar:</p>
+    <input type="text" id="playerName" placeholder="Seu nome" />
+    <br>
+    <button type="button" onclick="startGame()">Iniciar</button>
+  </div>
 
-       
-        <!-- Perguntas -->
-        <div class="question">
-            <p>1. Qual foi o primeiro álbum da Taylor Swift?</p>
-            <div class="options">
-                <label><input type="radio" name="q1"> Taylor Swift</label>
-                <label><input type="radio" name="q1"> Fearless</label>
-                <label><input type="radio" name="q1"> Speak Now</label>
-            </div>
+  <!-- Quiz -->
+  <div id="quiz-screen" class="hidden">
+    <h1>Weme da Taylor</h1>
+    <form id="quizForm">
+      <div class="question">
+        <p>1. Qual foi o primeiro álbum da Taylor Swift?</p>
+        <div class="options">
+          <label><input type="radio" name="q1" value="Taylor Swift"> Taylor Swift</label>
+          <label><input type="radio" name="q1" value="Fearless"> Fearless</label>
+          <label><input type="radio" name="q1" value="Speak Now"> Speak Now</label>
         </div>
+      </div>
+      <div class="question">
+        <p>2. Em que ano saiu o álbum “Red”?</p>
+        <div class="options">
+          <label><input type="radio" name="q2" value="2010"> 2010</label>
+          <label><input type="radio" name="q2" value="2012"> 2012</label>
+          <label><input type="radio" name="q2" value="2014"> 2014</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>3. Qual dessas músicas NÃO é da Taylor Swift?</p>
+        <div class="options">
+          <label><input type="radio" name="q3" value="Love Story"> Love Story</label>
+          <label><input type="radio" name="q3" value="Style"> Style</label>
+          <label><input type="radio" name="q3" value="Someone Like You"> Someone Like You</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>4. Qual o nome do álbum que marcou a era pop da Taylor?</p>
+        <div class="options">
+          <label><input type="radio" name="q4" value="1989"> 1989</label>
+          <label><input type="radio" name="q4" value="Reputation"> Reputation</label>
+          <label><input type="radio" name="q4" value="Folklore"> Folklore</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>5. Em que cidade Taylor Swift nasceu?</p>
+        <div class="options">
+          <label><input type="radio" name="q5" value="Reading"> Reading</label>
+          <label><input type="radio" name="q5" value="Nashville"> Nashville</label>
+          <label><input type="radio" name="q5" value="Los Angeles"> Los Angeles</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>6. Qual música ganhou o Grammy de Música do Ano em 2016?</p>
+        <div class="options">
+          <label><input type="radio" name="q6" value="Shake It Off"> Shake It Off</label>
+          <label><input type="radio" name="q6" value="Blank Space"> Blank Space</label>
+          <label><input type="radio" name="q6" value="Bad Blood"> Bad Blood</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>7. Qual desses álbuns foi lançado durante a pandemia?</p>
+        <div class="options">
+          <label><input type="radio" name="q7" value="Reputation"> Reputation</label>
+          <label><input type="radio" name="q7" value="Folklore"> Folklore</label>
+          <label><input type="radio" name="q7" value="1989"> 1989</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>8. Qual turnê ficou conhecida como a maior da carreira da Taylor até hoje?</p>
+        <div class="options">
+          <label><input type="radio" name="q8" value="Speak Now World Tour"> Speak Now World Tour</label>
+          <label><input type="radio" name="q8" value="Red Tour"> Red Tour</label>
+          <label><input type="radio" name="q8" value="The Eras Tour"> The Eras Tour</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>9. Qual dessas músicas pertence ao álbum “Folklore”?</p>
+        <div class="options">
+          <label><input type="radio" name="q9" value="Cardigan"> Cardigan</label>
+          <label><input type="radio" name="q9" value="Lover"> Lover</label>
+          <label><input type="radio" name="q9" value="Wildest Dreams"> Wildest Dreams</label>
+        </div>
+      </div>
+      <div class="question">
+        <p>10. Em 2025, Taylor completou a regravação de quais álbuns?</p>
+        <div class="options">
+          <label><input type="radio" name="q10" value="Todos até Reputation"> Todos os seus álbuns até o “Reputation”</label>
+          <label><input type="radio" name="q10" value="Somente 3 primeiros"> Somente os 3 primeiros</label>
+          <label><input type="radio" name="q10" value="Nenhum"> Nenhum</label>
+        </div>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
 
-        <div class="question">
-            <p>2. Em que ano saiu o álbum “Red”?</p>
-            <div class="options">
-                <label><input type="radio" name="q2"> 2010</label>
-                <label><input type="radio" name="q2"> 2012</label>
-                <label><input type="radio" name="q2"> 2014</label>
-            </div>
-        </div>
+  <!-- Resultado -->
+  <div id="result-screen" class="hidden">
+    <h1>Resultado</h1>
+    <div class="score-box" id="scoreBox"></div>
+    <div class="ranking-box" id="rankingBox"></div>
+    <button onclick="restartGame()">Jogar novamente?</button>
+    <p style="margin-top:15px; font-style:italic;">By Nicolly Guedes</p>
+  </div>
+</div>
 
-        <div class="question">
-            <p>3. Qual dessas músicas NÃO é da Taylor Swift?</p>
-            <div class="options">
-                <label><input type="radio" name="q3"> Love Story</label>
-                <label><input type="radio" name="q3"> Style</label>
-                <label><input type="radio" name="q3"> Someone Like You</label>
-            </div>
-        </div>
+<script>
+const correctAnswers = {
+  q1: "Taylor Swift",
+  q2: "2012",
+  q3: "Someone Like You",
+  q4: "1989",
+  q5: "Reading",
+  q6: "Blank Space",
+  q7: "Folklore",
+  q8: "The Eras Tour",
+  q9: "Cardigan",
+  q10: "Todos até Reputation"
+};
 
-        <div class="question">
-            <p>4. Qual o nome do álbum que marcou a era pop da Taylor?</p>
-            <div class="options">
-                <label><input type="radio" name="q4"> 1989</label>
-                <label><input type="radio" name="q4"> Reputation</label>
-                <label><input type="radio" name="q4"> Folklore</label>
-            </div>
-        </div>
+let playerName = "";
 
-        <div class="question">
-            <p>5. Em que cidade Taylor Swift nasceu?</p>
-            <div class="options">
-                <label><input type="radio" name="q5"> Reading</label>
-                <label><input type="radio" name="q5"> Nashville</label>
-                <label><input type="radio" name="q5"> Los Angeles</label>
-            </div>
-        </div>
+function startGame() {
+  playerName = document.getElementById("playerName").value.trim();
+  if (!playerName) {
+    alert("Digite seu nome!");
+    return;
+  }
+  document.getElementById("start-screen").classList.add("hidden");
+  document.getElementById("quiz-screen").classList.remove("hidden");
+}
 
-        <div class="question">
-            <p>6. Qual música ganhou o Grammy de Música do Ano em 2016?</p>
-            <div class="options">
-                <label><input type="radio" name="q6"> Shake It Off</label>
-                <label><input type="radio" name="q6"> Blank Space</label>
-                <label><input type="radio" name="q6"> Bad Blood</label>
-            </div>
-        </div>
+document.getElementById("quizForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  let score = 0;
+  for (let q in correctAnswers){
+    const answer = document.querySelector(`input[name="${q}"]:checked`);
+    if(answer && answer.value === correctAnswers[q]) score++;
+  }
+  saveScore(playerName, score);
+  showResult(playerName, score);
+});
 
-        <div class="question">
-            <p>7. Qual desses álbuns foi lançado durante a pandemia?</p>
-            <div class="options">
-                <label><input type="radio" name="q7"> Reputation</label>
-                <label><input type="radio" name="q7"> Folklore</label>
-                <label><input type="radio" name="q7"> 1989</label>
-            </div>
-        </div>
+function saveScore(name, score){
+  if(!name || score === undefined) return;
+  let ranking = JSON.parse(localStorage.getItem("ranking") || "[]");
+  ranking.push({name, score});
+  ranking.sort((a,b)=>b.score - a.score);
+  localStorage.setItem("ranking", JSON.stringify(ranking));
+}
 
-        <div class="question">
-            <p>8. Qual turnê ficou conhecida como a maior da carreira da Taylor até hoje?</p>
-            <div class="options">
-                <label><input type="radio" name="q8"> Speak Now World Tour</label>
-                <label><input type="radio" name="q8"> Red Tour</label>
-                <label><input type="radio" name="q8"> The Eras Tour</label>
-            </div>
-        </div>
+function showResult(name, score){
+  document.getElementById("quiz-screen").classList.add("hidden");
+  document.getElementById("result-screen").classList.remove("hidden");
+  document.getElementById("scoreBox").innerText = `${name}, sua pontuação foi ${score}/10 🎉`;
 
-        <div class="question">
-            <p>9. Qual dessas músicas pertence ao álbum “Folklore”?</p>
-            <div class="options">
-                <label><input type="radio" name="q9"> Cardigan</label>
-                <label><input type="radio" name="q9"> Lover</label>
-                <label><input type="radio" name="q9"> Wildest Dreams</label>
-            </div>
-        </div>
+  let ranking = JSON.parse(localStorage.getItem("ranking") || "[]");
+  ranking = ranking.filter(r => r.name && r.score !== undefined);
 
-        <div class="question">
-            <p>10. Em 2025, Taylor completou a regravação de quais álbuns?</p>
-            <div class="options">
-                <label><input type="radio" name="q10"> Todos os seus álbuns até o “Reputation”</label>
-                <label><input type="radio" name="q10"> Somente os 3 primeiros</label>
-                <label><input type="radio" name="q10"> Nenhum</label>
-            </div>
-        </div>
+  let html = "<h3>Ranking:</h3>";
+  if(ranking.length === 0){
+    html += "Ainda não há jogadores no ranking.";
+  } else {
+    ranking.forEach((r,i)=>{
+      html += `${i+1}. ${r.name} - ${r.score} pontos<br>`;
+    });
+  }
+  document.getElementById("rankingBox").innerHTML = html;
+}
 
-        <!-- Rodapé -->
-        <div class="footer">
-            by Wemwlly & Nicolly Guedes
-        </div>
-    </div>
+function restartGame(){
+  document.getElementById("result-screen").classList.add("hidden");
+  document.getElementById("start-screen").classList.remove("hidden");
+  document.getElementById("playerName").value = "";
+  const radios = document.querySelectorAll('input[type="radio"]');
+  radios.forEach(r=>r.checked=false);
+}
+</script>
 </body>
-
 </html>
