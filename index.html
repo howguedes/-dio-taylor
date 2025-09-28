@@ -1,85 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Weme & Guedes - Quiz</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #8b0000, #000000);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weme & Guedes - Quiz</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #8b0000, #000000);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+  }
+
+  .container {
+    max-width: 900px;
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    padding: 5vw;
+    border-radius: 2vw;
+    box-shadow: 0 1vw 2.5vw rgba(0,0,0,0.8);
+    text-align: center;
+    backdrop-filter: blur(0.5vw);
+    border: 0.1vw solid rgba(255,255,255,0.2);
+  }
+
+  h1 { 
+    color: #ff4d4d; 
+    text-shadow: 0 0 1vw rgba(255,68,68,0.8); 
+    margin-bottom: 2vw;
+    font-size: 4vw;
+  }
+
+  .question { text-align: left; margin: 2vw 0; }
+  .question p { font-weight: bold; color: #ffcccc; font-size: 3vw; }
+
+  .options label {
+    display: block;
+    background: rgba(255,255,255,0.1);
+    margin: 1vw 0;
+    padding: 2vw;
+    border-radius: 1vw;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 3vw;
+  }
+
+  .options label:hover {
+    background: rgba(255,68,68,0.4);
+    transform: translateX(0.5vw);
+  }
+
+  .hidden { display: none; }
+
+  .score-box {
+    background: rgba(255,68,68,0.2);
+    padding: 3vw;
+    border-radius: 1.5vw;
+    margin-top: 2vw;
+    font-size: 4vw;
+    font-weight: bold;
+    color: #ffdddd;
+    box-shadow: 0 1vw 2vw rgba(0,0,0,0.5);
+  }
+
+  .ranking-box {
+    background: rgba(255,68,68,0.1);
+    padding: 2vw;
+    border-radius: 1vw;
+    margin-top: 2vw;
+    color: #fff;
+    text-align: left;
+    font-size: 3vw;
+  }
+
+  input[type="text"] {
+    padding: 2vw;
+    font-size: 3vw;
+    border-radius: 1vw;
+    border: none;
+    width: 80%;
+    max-width: 400px;
+    margin-top: 1vw;
+  }
+
+  button {
+    padding: 2vw 4vw;
+    font-size: 3vw;
+    border-radius: 1vw;
+    border: none;
+    cursor: pointer;
+    background-color: #ff4d4d;
+    color: #fff;
+    margin-top: 2vw;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #ff6666;
+  }
+
+  /* Media Queries para telas menores */
+  @media (max-width: 500px) {
+    h1 { font-size: 6vw; }
+    .question p, .options label, .ranking-box, input[type="text"], button {
+      font-size: 4vw;
     }
-    .container {
-      max-width: 900px;
-      width: 100%;
-      background: rgba(255,255,255,0.06);
-      padding: 40px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.8);
-      text-align: center;
-      backdrop-filter: blur(8px);
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    h1 { 
-      color: #ff4d4d; 
-      text-shadow: 0 0 15px rgba(255,68,68,0.8); 
-      margin-bottom: 20px;
-    }
-    .question { text-align: left; margin: 20px 0; }
-    .question p { font-weight: bold; color: #ffcccc; }
-    .options label {
-      display: block;
-      background: rgba(255,255,255,0.1);
-      margin: 10px 0;
-      padding: 12px;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .options label:hover {
-      background: rgba(255,68,68,0.4);
-      transform: translateX(5px);
-    }
-    .hidden { display: none; }
-    .score-box {
-      background: rgba(255,68,68,0.2);
-      padding: 20px;
-      border-radius: 15px;
-      margin-top: 20px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #ffdddd;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-    }
-    .ranking-box {
-      background: rgba(255,68,68,0.1);
-      padding: 15px;
-      border-radius: 12px;
-      margin-top: 20px;
-      color: #fff;
-      text-align: left;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 1rem;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      background-color: #ff4d4d;
-      color: #fff;
-      margin-top: 15px;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background-color: #ff6666;
-    }
-  </style>
+    .container { padding: 4vw; }
+    .score-box { font-size: 5vw; padding: 4vw; }
+  }
+</style>
 </head>
 <body>
 <div class="container">
@@ -96,6 +130,7 @@
   <div id="quiz-screen" class="hidden">
     <h1>Weme da Taylor</h1>
     <form id="quizForm">
+      <!-- Perguntas -->
       <div class="question">
         <p>1. Qual foi o primeiro álbum da Taylor Swift?</p>
         <div class="options">
@@ -208,7 +243,7 @@ let playerName = "";
 
 function startGame() {
   playerName = document.getElementById("playerName").value.trim();
-  if (!playerName) {
+  if(!playerName){
     alert("Digite seu nome!");
     return;
   }
@@ -219,7 +254,7 @@ function startGame() {
 document.getElementById("quizForm").addEventListener("submit", function(e){
   e.preventDefault();
   let score = 0;
-  for (let q in correctAnswers){
+  for(let q in correctAnswers){
     const answer = document.querySelector(`input[name="${q}"]:checked`);
     if(answer && answer.value === correctAnswers[q]) score++;
   }
