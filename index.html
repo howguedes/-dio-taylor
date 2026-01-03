@@ -1,136 +1,126 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Brooklyn - pizzaria</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style scr="style.css"></style>
+  <script scr="script.js"></script>
+  <title>Weme & Guedes - Quiz</title>
 </head>
 
 <body>
-    <header class="topbar">
-        <div class="container row">
-            <a href="#">Pizza Brooklyn🍕🗽</a>
-            <nav>
-                <a href="#sobre">sobre</a>
-                <a href="#cardapio">cardapio</a>
-                <a href="#contato">contato</a>
-            </nav>
+  <div class="container">
+    <!-- parte de play -->
+    <div id="start-screen">
+      <h1>Weme da Taylor</h1>
+      <p>Digite seu nome para começar:</p>
+      <input type="text" id="playerName" placeholder="Seu nome" />
+      <br>
+      <button type="button" onclick="startGame()">Iniciar</button>
+    </div>
+
+    <!-- perguntas -->
+    <div id="quiz-screen" class="hidden">
+      <h1>Weme da Taylor</h1>
+      <form id="quizForm">
+        <!-- Perguntas -->
+        <div class="question">
+          <p>1. Qual foi o primeiro álbum da Taylor Swift?</p>
+          <div class="options">
+            <label><input type="radio" name="q1" value="Taylor Swift"> Taylor Swift</label>
+            <label><input type="radio" name="q1" value="Fearless"> Fearless</label>
+            <label><input type="radio" name="q1" value="Speak Now"> Speak Now</label>
+          </div>
         </div>
-    </header>
-    <main>
-
-        <section id="sobre">
-            <div>
-                <div>
-                    <h1>Pizza Brooklyn - melhor pizza do brooklyn</h1>
-                    <p>uma experiencia show!!!</p>
-                </div>
-                <figure>
-                    <img src="img/images.jpg" width="600" alt="jake peralta com uma deliciosa pizza, aqui mesmo do pizza brooklyn! com a seguinte frase:'legal, legal, legal...
-                        mais você ja pediu sua pizza brooklyn hoje?'">
-                </figure>
-            </div>
-
-        </section>
-        <section id="cardapio">
-            <div>
-                <!-- ITEM 1-->
-                <article>
-
-                    <h3>pizza de peperone</h3>
-                    <p>Molho de tomate, mozzarella, peperone, oregáno e mangericão fresco.</p>
-                    <span>R$ 50,00</span>
-                    <img src="img\pizzaPE.jpg" width="600"
-                        alt="uma deliciosa pizza de peperone, com um corte de uma fatia segurada por uma espatula e um boné escrito brooklyn ao fundo.">
-                </article>
-                <!-- ITEM 2-->
-                <article>
-
-                    <h3>pizza de atum</h3>
-                    <p>Molho de tomate, mozzarella, atum, oregáno e azeitonas.</p>
-                    <span>R$ 50,00</span>
-                    <img src="img\pizzaAT.jpeg" width="600"
-                        alt="a nossa deliciosa pizza de atum acabando de sair do forno ainda na forma.">
-                </article>
-                <!-- ITEM 3-->
-                <article>
-
-                    <h3>pizza de calabresa</h3>
-                    <p>Molho de tomate, mozzarella, calabresa, oregáno, azeitonas e cebolas.</p>
-                    <span>R$ 50,00</span>
-                    <img src="img/pizzaCA2.jpg" width="600"
-                        alt="nossa deliciosa pizza de calabresa com bastante cebola e azeitonas com o funda da pizza com muita calabresa.">
-                </article>
-                <!-- ITEM 4-->
-                <article>
-                    <h3>pizza especial do jake</h3>
-                    <p>Molho de tomate, mozzarella, peperone, oregáno, mangericão fresco, salame e tomate.</p>
-                    <span>R$ 50,00</span>
-                    <img src="img/pizzaESP.jpg" width="600"
-                        alt="a nossa maravilhosa pizza especia do jake, formada por nossas melhores ingredientes.">
-                </article>
-                <!-- ITEM 5-->
-                <article>
-
-                    <h3>pizza de abacaxi</h3>
-                    <p>Molho de tomate, mozzarella, abacaxi.</p>
-                    <span>R$ 50,00</span>
-                    <img src="img\pizzaAB.jpg" width="600" alt="uma maravilhosa pizza de abacaxi super recheada.">
-                </article>
-                <!-- ITEM 6-->
-                <article>
-
-                    <h3>pizza de escarola</h3>
-                    <p>Molho de tomate, mozzarella,escarola, oregáno e azeitonas.</p>
-                    <span>R$ 50,00</span>
-                    <img src="img/pizzaESC.jpg" width="600" alt="uma deliciosa pizza de escarola.">
-                </article>
-            </div>
-        </section>
-        <section id="contato">
-            <div>
-                <h3>fale com a gente!</h3>
-                <form>
-                    <label>
-                        Nome:
-                        <input type="text" placeholder="digite o seu neme completo..." name="Nome" required>
-                    </label>
-                    <label>
-                        Telefone:
-                        <input type="tel" placeholder="(11) 55515-7625" name="Telefone" required>
-                    </label>
-                    <label>
-                        Mensagem:
-                        <textarea name="Mensagem" placeholder="escreva a sua mensagem..." rows="5"></textarea>
-                    </label>
-                    <input type="submit" name="enviar">
-                </form>
-            </div>
-            <div>
-                <h3>onde estamos</h3>
-                <P>65 6th Ave, Brooklyn, NY 11217, Estados Unidos
-                    <strong>Abertos de seg á dom</strong> 11h as 00h
-                </P>
-                <figure>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3025.68510510799!2d-73.97675152345982!3d40.680906739517866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25baed8e8e28b%3A0xda8790edf468f913!2sNew%20York%20City%20Police%20Department%20-%2078th%20Precinct!5e0!3m2!1spt-BR!2sbr!4v1758977221419!5m2!1spt-BR!2sbr" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </figure>
-            </div>
-        </section>
-
-    </main>
-    <footer>
-        <div>
-            <small>
-                
-                <strong>2025 ©</strong> By Nicolly Guedes
-            </small>
-            <a href="#">
-                ↑ Pizza Brooklyn
-            </a>
+        <div class="question">
+          <p>2. Em que ano saiu o álbum “Red”?</p>
+          <div class="options">
+            <label><input type="radio" name="q2" value="2010"> 2010</label>
+            <label><input type="radio" name="q2" value="2012"> 2012</label>
+            <label><input type="radio" name="q2" value="2014"> 2014</label>
+          </div>
         </div>
-    </footer>
+        <div class="question">
+          <p>3. Qual dessas músicas NÃO é da Taylor Swift?</p>
+          <div class="options">
+            <label><input type="radio" name="q3" value="Love Story"> Love Story</label>
+            <label><input type="radio" name="q3" value="Style"> Style</label>
+            <label><input type="radio" name="q3" value="Someone Like You"> Someone Like You</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>4. Qual o nome do álbum que marcou a era pop da Taylor?</p>
+          <div class="options">
+            <label><input type="radio" name="q4" value="1989"> 1989</label>
+            <label><input type="radio" name="q4" value="Reputation"> Reputation</label>
+            <label><input type="radio" name="q4" value="Folklore"> Folklore</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>5. Em que cidade Taylor Swift nasceu?</p>
+          <div class="options">
+            <label><input type="radio" name="q5" value="Reading"> Reading</label>
+            <label><input type="radio" name="q5" value="Nashville"> Nashville</label>
+            <label><input type="radio" name="q5" value="Los Angeles"> Los Angeles</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>6. Qual música ganhou o Grammy de Música do Ano em 2016?</p>
+          <div class="options">
+            <label><input type="radio" name="q6" value="Shake It Off"> Shake It Off</label>
+            <label><input type="radio" name="q6" value="Blank Space"> Blank Space</label>
+            <label><input type="radio" name="q6" value="Bad Blood"> Bad Blood</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>7. Qual desses álbuns foi lançado durante a pandemia?</p>
+          <div class="options">
+            <label><input type="radio" name="q7" value="Reputation"> Reputation</label>
+            <label><input type="radio" name="q7" value="Folklore"> Folklore</label>
+            <label><input type="radio" name="q7" value="1989"> 1989</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>8. Qual turnê ficou conhecida como a maior da carreira da Taylor até hoje?</p>
+          <div class="options">
+            <label><input type="radio" name="q8" value="Speak Now World Tour"> Speak Now World Tour</label>
+            <label><input type="radio" name="q8" value="Red Tour"> Red Tour</label>
+            <label><input type="radio" name="q8" value="The Eras Tour"> The Eras Tour</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>9. Qual dessas músicas pertence ao álbum “Folklore”?</p>
+          <div class="options">
+            <label><input type="radio" name="q9" value="Cardigan"> Cardigan</label>
+            <label><input type="radio" name="q9" value="Lover"> Lover</label>
+            <label><input type="radio" name="q9" value="Wildest Dreams"> Wildest Dreams</label>
+          </div>
+        </div>
+        <div class="question">
+          <p>10. Em 2025, Taylor completou a regravação de quais álbuns?</p>
+          <div class="options">
+            <label><input type="radio" name="q10" value="Todos até Reputation"> Todos os seus álbuns até o
+              “Reputation”</label>
+            <label><input type="radio" name="q10" value="Somente 3 primeiros"> Somente os 3 primeiros</label>
+            <label><input type="radio" name="q10" value="Nenhum"> Nenhum</label>
+          </div>
+        </div>
+        <button type="submit">Enviar</button>
+      </form>
+    </div>
+
+    <!-- Respostas -->
+    <div id="result-screen" class="hidden">
+      <h1>Resultado</h1>
+      <div class="score-box" id="scoreBox"></div>
+      <div class="ranking-box" id="rankingBox"></div>
+      <button onclick="restartGame()">Jogar novamente?</button>
+      <p style="margin-top:15px; font-style:italic;">By Nicolly Guedes</p>
+    </div>
+  </div>
+
+
 </body>
 
 </html>
