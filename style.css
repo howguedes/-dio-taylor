@@ -1,0 +1,193 @@
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #120000, #8b0000);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 3rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ===== TELAS ===== */
+.screen {
+    animation: fade 0.4s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+/* ===== TÍTULOS ===== */
+h1 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #ff5c5c;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 12px rgba(255, 92, 92, 0.6);
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    opacity: 0.85;
+    margin-bottom: 2rem;
+}
+
+/* ===== INPUT ===== */
+input[type="text"] {
+    width: 100%;
+    max-width: 420px;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    display: block;
+    margin: 0 auto 1.5rem;
+}
+
+input[type="text"]:focus {
+    box-shadow: 0 0 0 3px rgba(255, 92, 92, 0.5);
+}
+
+/* ===== QUESTÕES ===== */
+.question {
+    margin-bottom: 2rem;
+}
+
+.question p {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+    color: #ffdada;
+}
+
+/* ===== OPÇÕES ===== */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.options label {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0.9rem 1rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.options label:hover {
+    background: rgba(255, 92, 92, 0.45);
+    transform: translateX(6px);
+}
+
+/* ===== RADIO ===== */
+input[type="radio"] {
+    accent-color: #ff5c5c;
+    transform: scale(1.2);
+}
+
+/* ===== BOTÕES ===== */
+button {
+    background: linear-gradient(135deg, #ff5c5c, #ff2e2e);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+    cursor: pointer;
+    display: block;
+    margin: 2rem auto 0;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 18px rgba(255, 92, 92, 0.7);
+}
+
+/* ===== RESULTADO ===== */
+.score-box {
+    background: rgba(255, 92, 92, 0.2);
+    border-radius: 18px;
+    padding: 1.8rem;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* ===== RANKING ===== */
+.ranking-box {
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+    padding: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.ranking-box h3 {
+    margin-bottom: 0.8rem;
+}
+
+.ranking-box p {
+    margin: 0.3rem 0;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ===== ANIMAÇÃO ===== */
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+    .container {
+        padding: 2rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    button {
+        width: 100%;
+    }
+}

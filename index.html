@@ -2,29 +2,32 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style scr="style.css"></style>
-  <script scr="script.js"></script>
-  <title>Weme & Guedes - Quiz</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz da weme</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="container">
-    <!-- parte de play -->
-    <div id="start-screen">
-      <h1>Weme da Taylor</h1>
-      <p>Digite seu nome para começar:</p>
-      <input type="text" id="playerName" placeholder="Seu nome" />
-      <br>
-      <button type="button" onclick="startGame()">Iniciar</button>
-    </div>
+  <main class="container">
 
-    <!-- perguntas -->
-    <div id="quiz-screen" class="hidden">
-      <h1>Weme da Taylor</h1>
+    <!-- Tela inicial -->
+    <section id="start-screen" class="screen">
+      <h1>Quiz Taylor Swift</h1>
+      <p class="subtitle">Teste seus conhecimentos sobre aquela loira burra 
+        que trocou o HARRY STYLES pelo estranho do travis
+      </p>
+
+      <input type="text" id="playerName" placeholder="Digite seu nome" />
+      <button onclick="startGame()">Começar Quiz</button>
+    </section>
+
+    <!-- Quiz -->
+    <section id="quiz-screen" class="screen hidden">
+      <h1>Responda as perguntas</h1>
+
       <form id="quizForm">
-        <!-- Perguntas -->
+
         <div class="question">
           <p>1. Qual foi o primeiro álbum da Taylor Swift?</p>
           <div class="options">
@@ -33,6 +36,7 @@
             <label><input type="radio" name="q1" value="Speak Now"> Speak Now</label>
           </div>
         </div>
+
         <div class="question">
           <p>2. Em que ano saiu o álbum “Red”?</p>
           <div class="options">
@@ -41,6 +45,7 @@
             <label><input type="radio" name="q2" value="2014"> 2014</label>
           </div>
         </div>
+
         <div class="question">
           <p>3. Qual dessas músicas NÃO é da Taylor Swift?</p>
           <div class="options">
@@ -49,14 +54,16 @@
             <label><input type="radio" name="q3" value="Someone Like You"> Someone Like You</label>
           </div>
         </div>
+
         <div class="question">
-          <p>4. Qual o nome do álbum que marcou a era pop da Taylor?</p>
+          <p>4. Qual álbum marcou a era pop?</p>
           <div class="options">
             <label><input type="radio" name="q4" value="1989"> 1989</label>
             <label><input type="radio" name="q4" value="Reputation"> Reputation</label>
             <label><input type="radio" name="q4" value="Folklore"> Folklore</label>
           </div>
         </div>
+
         <div class="question">
           <p>5. Em que cidade Taylor Swift nasceu?</p>
           <div class="options">
@@ -65,62 +72,28 @@
             <label><input type="radio" name="q5" value="Los Angeles"> Los Angeles</label>
           </div>
         </div>
-        <div class="question">
-          <p>6. Qual música ganhou o Grammy de Música do Ano em 2016?</p>
-          <div class="options">
-            <label><input type="radio" name="q6" value="Shake It Off"> Shake It Off</label>
-            <label><input type="radio" name="q6" value="Blank Space"> Blank Space</label>
-            <label><input type="radio" name="q6" value="Bad Blood"> Bad Blood</label>
-          </div>
-        </div>
-        <div class="question">
-          <p>7. Qual desses álbuns foi lançado durante a pandemia?</p>
-          <div class="options">
-            <label><input type="radio" name="q7" value="Reputation"> Reputation</label>
-            <label><input type="radio" name="q7" value="Folklore"> Folklore</label>
-            <label><input type="radio" name="q7" value="1989"> 1989</label>
-          </div>
-        </div>
-        <div class="question">
-          <p>8. Qual turnê ficou conhecida como a maior da carreira da Taylor até hoje?</p>
-          <div class="options">
-            <label><input type="radio" name="q8" value="Speak Now World Tour"> Speak Now World Tour</label>
-            <label><input type="radio" name="q8" value="Red Tour"> Red Tour</label>
-            <label><input type="radio" name="q8" value="The Eras Tour"> The Eras Tour</label>
-          </div>
-        </div>
-        <div class="question">
-          <p>9. Qual dessas músicas pertence ao álbum “Folklore”?</p>
-          <div class="options">
-            <label><input type="radio" name="q9" value="Cardigan"> Cardigan</label>
-            <label><input type="radio" name="q9" value="Lover"> Lover</label>
-            <label><input type="radio" name="q9" value="Wildest Dreams"> Wildest Dreams</label>
-          </div>
-        </div>
-        <div class="question">
-          <p>10. Em 2025, Taylor completou a regravação de quais álbuns?</p>
-          <div class="options">
-            <label><input type="radio" name="q10" value="Todos até Reputation"> Todos os seus álbuns até o
-              “Reputation”</label>
-            <label><input type="radio" name="q10" value="Somente 3 primeiros"> Somente os 3 primeiros</label>
-            <label><input type="radio" name="q10" value="Nenhum"> Nenhum</label>
-          </div>
-        </div>
-        <button type="submit">Enviar</button>
+
+        <button type="submit">Enviar respostas</button>
       </form>
-    </div>
+    </section>
 
-    <!-- Respostas -->
-    <div id="result-screen" class="hidden">
+    <!-- Resultado -->
+    <section id="result-screen" class="screen hidden">
       <h1>Resultado</h1>
-      <div class="score-box" id="scoreBox"></div>
-      <div class="ranking-box" id="rankingBox"></div>
-      <button onclick="restartGame()">Jogar novamente?</button>
-      <p style="margin-top:15px; font-style:italic;">By Nicolly Guedes</p>
-    </div>
-  </div>
 
+      <div id="scoreBox" class="score-box"></div>
+      <div id="rankingBox" class="ranking-box"></div>
 
+      <button onclick="restartGame()">Jogar novamente</button>
+
+      <footer class="footer">
+        <p>By Nicolly Guedes</p>
+      </footer>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
